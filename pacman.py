@@ -1,8 +1,5 @@
 #Pacman in Python with PyGame
 #https://github.com/hbokmann/Pacman
-import pygame
-
-#Hello 
 
 black = (0,0,0)
 white = (255,255,255)
