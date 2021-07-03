@@ -3,7 +3,7 @@
   
 #DARIUS AND JAVON CONTRIBUTIONS
 
-import pygame._view
+import pygame
   
 black = (0,0,0)
 white = (255,255,255)
