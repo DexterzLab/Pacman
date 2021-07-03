@@ -3,7 +3,8 @@
   
 import pygame
 
-from player import *
+from player import Player
+from player import Ghost
   
 black = (0,0,0)
 white = (255,255,255)
