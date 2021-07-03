@@ -1,10 +1,9 @@
 #Pacman in Python with PyGame
 #https://github.com/hbokmann/Pacman
   
-#DARIUS AND JAVON CONTRIBUTIONS
-
 import pygame
-from 
+
+import player
   
 black = (0,0,0)
 white = (255,255,255)
@@ -18,9 +17,9 @@ Trollicon=pygame.image.load('images/Trollman.png')
 pygame.display.set_icon(Trollicon)
 
 #Add music
-pygame.mixer.init()
-pygame.mixer.music.load('pacman.mp3')
-pygame.mixer.music.play(-1, 0.0)
+#pygame.mixer.init()
+#pygame.mixer.music.load('pacman.mp3')
+#pygame.mixer.music.play(-1, 0.0)
 
 # This class represents the bar at the bottom that the player controls
 class Wall(pygame.sprite.Sprite):
@@ -121,8 +120,6 @@ class Block(pygame.sprite.Sprite):
         # Update the position of this object by setting the values 
         # of rect.x and rect.y
         self.rect = self.image.get_rect() 
-
-
 
 
 Pinky_directions = [

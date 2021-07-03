@@ -1,4 +1,4 @@
-from Pacman.player import player
+from pacman import player
 
 import pygame
 
@@ -25,6 +25,3 @@ class Ghost(Player):
         return [turn,steps]
       except IndexError:
          return [0,0]
-
-
-
