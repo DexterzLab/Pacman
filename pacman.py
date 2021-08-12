@@ -1,11 +1,24 @@
 #Pacman in Python with PyGame
 #https://github.com/hbokmann/Pacman
-  
+
+# Pac-Man is one of the world's oldest computer games. In this task, we are going to pay tribute to Pac-Man. 
+#
+# We are building a new game called Vax-Man. The rules are similar to Pac-Man with several notable exceptions:
+#
+# Vax-Man can kill a ghost if he comes into contact with it (vaccinates it).
+# Contact with a ghost does not kill Vax-Man.
+# Each ghost that has not yet been hit multiplies itself every 30 seconds (the infection grows).
+# The goal of the game is to collect all the dots before the number of ghosts grows to 32 times the original number.
+# (If you are unsure of the rules of Pac-Man, you can find them in the Resources section below.)
+
 import pygame
 
 
 from player import Player
-from player import Ghost
+from ghost import Ghost
+from BlockClass import Block
+from WallClass import Wall
+
 
   
 black = (0,0,0)
@@ -26,21 +39,7 @@ pygame.display.set_icon(Trollicon)
 #pygame.mixer.music.load('pacman.mp3')
 #pygame.mixer.music.play(-1, 0.0)
 
-# This class represents the bar at the bottom that the player controls
-class Wall(pygame.sprite.Sprite):
-    # Constructor function
-    def __init__(self,x,y,width,height, color):
-        # Call the parent's constructor
-        pygame.sprite.Sprite.__init__(self)
-  
-        # Make a blue wall, of the size specified in the parameters
-        self.image = pygame.Surface([width, height])
-        self.image.fill(color)
-  
-        # Make our top-left corner the passed-in location.
-        self.rect = self.image.get_rect()
-        self.rect.top = y
-        self.rect.left = x
+
 
 # This creates all the walls in room 1
 def setupRoomOne(all_sprites_list):
@@ -103,28 +102,6 @@ def setupGate(all_sprites_list):
       all_sprites_list.add(gate)
       return gate
 
-# This class represents the ball        
-# It derives from the "Sprite" class in Pygame
-class Block(pygame.sprite.Sprite):
-     
-    # Constructor. Pass in the color of the block, 
-    # and its x and y position
-    def __init__(self, color, width, height):
-        # Call the parent class (Sprite) constructor
-        pygame.sprite.Sprite.__init__(self) 
- 
-        # Create an image of the block, and fill it with a color.
-        # This could also be an image loaded from the disk.
-        self.image = pygame.Surface([width, height])
-        self.image.fill(white)
-        self.image.set_colorkey(white)
-        pygame.draw.ellipse(self.image,color,[0,0,width,height])
- 
-        # Fetch the rectangle object that has the dimensions of the image
-        # image.
-        # Update the position of this object by setting the values 
-        # of rect.x and rect.y
-        self.rect = self.image.get_rect() 
 
 
 Pinky_directions = [
@@ -304,7 +281,7 @@ def startGame():
 
 
   # Create the player paddle object
-  Pacman = Player( w, p_h, "images/Trollman.png" )
+  Pacman = Player( w, p_h, "images/pacman.png" )
   all_sprites_list.add(Pacman)
   pacman_collide.add(Pacman)
    

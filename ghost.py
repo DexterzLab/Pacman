@@ -1,4 +1,5 @@
-from pacman import player
+#from pacman import player
+from player import Player
 
 import pygame
 
